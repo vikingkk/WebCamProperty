@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'WebCam_Tool'
-  ClientHeight = 573
+  ClientHeight = 581
   ClientWidth = 1130
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,9 +18,12 @@ object Form1: TForm1
     Left = 625
     Top = 0
     Width = 505
-    Height = 573
+    Height = 581
     Align = alRight
     TabOrder = 0
+    DesignSize = (
+      505
+      581)
     object Memo1: TMemo
       Left = -1
       Top = 0
@@ -35,16 +38,28 @@ object Form1: TForm1
       Left = 248
       Top = 1
       Width = 256
-      Height = 571
+      Height = 579
       Align = alRight
       TabOrder = 1
+    end
+    object Memo2: TMemo
+      Left = 248
+      Top = 432
+      Width = 241
+      Height = 139
+      Anchors = [akLeft, akTop, akBottom]
+      Lines.Strings = (
+        'Memo2')
+      ScrollBars = ssVertical
+      TabOrder = 2
+      OnClick = Memo2Click
     end
   end
   object Panel4: TPanel
     Left = 0
     Top = 0
     Width = 625
-    Height = 573
+    Height = 581
     Align = alClient
     TabOrder = 1
     object Panel1: TPanel
@@ -67,13 +82,14 @@ object Form1: TForm1
         ParentFont = False
         TabOrder = 0
         Text = 'ComboBox_Cams'
+        OnChange = ComboBox_CamsChange
       end
       object btnTakeClick: TButton
         Left = 8
         Top = 42
-        Width = 150
+        Width = 73
         Height = 33
-        Caption = 'Start Webcam'
+        Caption = 'Start'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -19
@@ -101,12 +117,12 @@ object Form1: TForm1
       object Button_fit: TButton
         Left = 161
         Top = 42
-        Width = 150
+        Width = 72
         Height = 33
         Caption = 'Fit Image'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -19
+        Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
@@ -158,19 +174,34 @@ object Form1: TForm1
         TabOrder = 6
         OnClick = Button_CallImageSettingClick
       end
+      object Button_redefult: TButton
+        Left = 236
+        Top = 42
+        Width = 76
+        Height = 34
+        Caption = 'Defult'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        OnClick = Button_redefultClick
+      end
     end
     object panel2: TPanel
       Left = 1
       Top = 82
       Width = 623
-      Height = 490
+      Height = 498
       Align = alClient
       TabOrder = 1
       object PaintBox_Video: TPaintBox
         Left = 1
         Top = 1
         Width = 621
-        Height = 488
+        Height = 496
         Align = alClient
         ExplicitLeft = -154
         ExplicitTop = -144
@@ -194,6 +225,21 @@ object Form1: TForm1
     TabOrder = 2
     OnClick = Button_LoadPropertyClick
   end
+  object Button_Stop: TButton
+    Left = 83
+    Top = 43
+    Width = 75
+    Height = 33
+    Caption = 'Stop'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+    OnClick = Button_StopClick
+  end
   object SaveDialog1: TSaveDialog
     Filter = 'ini|*.ini'
     Left = 584
@@ -203,6 +249,11 @@ object Form1: TForm1
     DefaultExt = '*.ini'
     Filter = 'ini|*.ini'
     Left = 534
+    Top = 512
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 481
     Top = 512
   end
 end

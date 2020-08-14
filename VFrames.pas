@@ -440,7 +440,6 @@ BEGIN
       AutoMode := true;
     end
     else begin
-
       AutoMode := CCFlags <> CameraControl_Flags_Manual;
     end;
 END;
